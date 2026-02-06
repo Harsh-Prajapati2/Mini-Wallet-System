@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Wallet = require('../models/wallet.model');
 const Transaction = require('../models/transaction.model');
 
-// Helper: get or create wallet for userId
+// get or create wallet for userId
 async function getOrCreateWallet(userId, session = null) {
   let wallet = await Wallet.findOne({ userId }).session(session);
   if (!wallet) {

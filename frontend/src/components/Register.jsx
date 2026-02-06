@@ -5,10 +5,14 @@ export default function Register({ onRegistered }){
   const [msg, setMsg] = useState('')
 
   async function submit(e){
-    e.preventDefault(); setMsg('')
+    e.preventDefault(); 
+    setMsg('')
     const body = Object.fromEntries(new FormData(e.target).entries())
     const res = await register(body)
-    if(res.ok){ setMsg('Registered successfully'); if(onRegistered) onRegistered() }
+    if(res.ok){ 
+      setMsg('Registered successfully'); 
+      if(onRegistered) onRegistered() 
+    }
     else setMsg(res.body?.error || res.body?.message || 'Registration failed')
   }
 

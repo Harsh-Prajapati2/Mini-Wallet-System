@@ -7,7 +7,10 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 
 // connect to MongoDB
@@ -16,7 +19,6 @@ connectDB().catch(err => {
   process.exit(1);
 });
 
-app.get('/', (req, res) => res.send('Mini Wallet API'));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/wallet', walletRoutes);

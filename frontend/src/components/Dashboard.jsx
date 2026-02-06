@@ -146,7 +146,7 @@ export default function Dashboard({ token, onUnauthorized }){
                     style={{height: `${(item.amount / maxDailySpending) * 100}%`}}
                     title={`Day ${item.day}: ₹${item.amount}`}
                   ></div>
-                  <span className="chart-label">{item.day}</span>
+                  <span className="chart-label">{item.day} : ₹{item.amount}</span>
                 </div>
               ))}
             </div>
